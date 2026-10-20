@@ -53,61 +53,41 @@ whether you hit them:
 
 ## 1.
 
-<!-- Your criterion. It must name a number. -->
+Overall accuracy is at least **0.65 in each of the three seed runs** on the held-out test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** I want it to get more than just over half the posts right for this to feel useful. Some posts mix personal experience with a question or analysis, so I don't expect it to be right every time.
 
 ---
 
 ## 2.
 
-<!-- Your criterion. -->
+Macro F1 is at least **0.60 in each of the three seed runs** on the held-out test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** I don't want a good score on the most common label to hide bad results on the others. I picked 0.60 because all three labels should be doing reasonably well, even if the personal-experience and help-request boundary is tricky.
 
 ---
 
 ## 3.
 
-<!-- Your criterion. -->
+The F1 score for each of `analysis`, `experience`, and `help_request` is at least **0.45 in each of the three seed runs** on the held-out test set.
 
-
-
-**Why this target:**
-
-
+**Why this target:** I set this lower than the overall target because each label has fewer examples in the test set, so its score can jump around more. `experience` and `help_request` can also look alike when someone describes their own situation before asking a question.
 
 ---
 
 ## 4.
 
-<!-- Your criterion. -->
+In the labelled dataset, no label has more than **50%** of the posts, and every label has at least **20%**.
 
-
-
-**Why this target:**
-
-
+**Why this target:** I want enough posts in every label for the model to learn from them, and I don't want one label to make up most of the dataset. I chose 20% and 50% to leave room for some kinds of posts to be more common without letting the others get squeezed out.
 
 ---
 
 ## 5.
 
-<!-- Your criterion. -->
+In each of the three seed runs, accuracy on the most-confident third of held-out predictions is at least **0.10 higher** than accuracy on the least-confident third.
 
-
-
-**Why this target:**
-
-
+**Why this target:** I expect the model to be more accurate when it's sure than when it's unsure, especially for clear questions or evidence-based posts. I picked a 10-point gap because a tiny difference wouldn't tell me much.
 
 ---
 
