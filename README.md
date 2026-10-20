@@ -116,6 +116,8 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 
 **Progress:** 0 labeled examples so far, below the 150-example fallback. I stopped at the source manifest because further public-feed requests were rate-limited; I don't have full post text or reviewed labels to include honestly yet.
 
+**Training blocker:** Section 2 reported `[FIX ME] 'help_request' is 78% of your data` for the nine-row draft. It also reported that `experience` is unused and that both present labels have too few examples for stable evaluation. These rows are summaries, not full posts, so I have not trained or evaluated a cybersecurity model on them. The section 4 run below uses the separate practice dataset.
+
 **Three hard cases**
 
 <!-- Any post that made you pause: what it was, which two labels it could have
@@ -154,6 +156,8 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 **Base model:** `distilbert-base-uncased` (practice demonstration only)
 
 **Settings:** 3 epochs, learning rate `2e-5`, batch size 16, max length 128, seed 42
+
+**Device:** CPU (`torch 2.14.1+cpu`)
 
 **Anything I changed from the defaults, and why:** For this demonstration I used `data/practice_labels.csv` and its labels (`analysis`, `hot_take`, `reaction`) in memory, because my cybersecurity CSV is not ready for training. I did not change the notebook file's label map for this run.
 
