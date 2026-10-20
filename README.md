@@ -99,45 +99,51 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** Public posts in [r/cybersecurity](https://www.reddit.com/r/cybersecurity/). I have collected 9 source links in `data/reddit_source_manifest.csv`, but those links and AI-suggested labels are not a labeled dataset.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** I have not labeled any dataset posts yet. Reddit rate-limited further collection, and I have not yet assembled full post text or reviewed labels. The manifest's suggested labels are AI-assisted and need my review; they are not cold labels.
+
+**Draft file:** `labels.csv` currently contains 9 AI-assisted summaries with source links and suggested labels. These are not full post text, have not been reviewed, and do not count as labeled examples.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `analysis` | 0 | 0% |
+| `experience` | 0 | 0% |
+| `help_request` | 0 | 0% |
+| **Total** | **0 labeled posts** | — |
+
+**Progress:** 0 labeled examples so far, below the 150-example fallback. I stopped at the source manifest because further public-feed requests were rate-limited; I don't have full post text or reviewed labels to include honestly yet.
 
 **Three hard cases**
 
 <!-- Any post that made you pause: what it was, which two labels it could have
      been, and what you chose. These are worth more than the easy 190. -->
 
+<!-- Provisional AI-assisted candidates from the source manifest below; read
+     each full post and replace or confirm these with cases that made you pause. -->
+
 **1.**
-> *The post:*
+> *The post:* [“Blocking the Entire Internet”](https://www.reddit.com/r/cybersecurity/comments/1xauxhj/blocking_the_entire_internet/) — describes a workplace proposal to block internet access and allowlist services.
 >
-> *Could have been:*
+> *Could have been:* `experience` or `help_request`
 >
-> *I chose, because:*
+> *AI-assisted provisional choice:* `help_request`, because the author asks whether the proposal is worthwhile and what strategies others use; the workplace context supports the question but is not the main purpose.
 
 **2.**
-> *The post:*
+> *The post:* [“Large Companies - What's your (Cyber) on-call Schedule Like?”](https://www.reddit.com/r/cybersecurity/comments/1xav151/large_companies_whats_your_cyber_oncall_schedule/) — gives detailed first-person information about the author's team's rotation and asks how other companies handle on-call.
 >
-> *Could have been:*
+> *Could have been:* `experience` or `help_request`
 >
-> *I chose, because:*
+> *AI-assisted provisional choice:* `help_request`, because the post explicitly asks readers to compare their schedules; the personal account is context for the request.
 
 **3.**
-> *The post:*
+> *The post:* [“100+ 1G files from darkweb - can people really download leaked data?”](https://www.reddit.com/r/cybersecurity/comments/1xaxgzg/100_1g_files_from_darkweb_can_people_really/) — describes a ransomware leak listing and reasons from details about the posted archives and missing file tree.
 >
-> *Could have been:*
+> *Could have been:* `analysis` or `help_request`
 >
-> *I chose, because:*
+> *AI-assisted provisional choice:* `help_request`, because the author frames the post as a question about what can be inferred; classify a genuine request as `help_request` even when it includes evidence. If reading the full post shows the question is rhetorical and its main purpose is evidence-based evaluation, use `analysis` instead.
 
 ---
 
@@ -145,16 +151,13 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased` (practice demonstration only)
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate `2e-5`, batch size 16, max length 128, seed 42
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** For this demonstration I used `data/practice_labels.csv` and its labels (`analysis`, `hot_take`, `reaction`) in memory, because my cybersecurity CSV is not ready for training. I did not change the notebook file's label map for this run.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
-
+**Split sizes:** 42 train / 9 validation / 9 test. The test split had 3 examples per practice label, so each label has fewer than 8; these results are only a practice run and not evidence about my cybersecurity classifier.
 
 
 ---
