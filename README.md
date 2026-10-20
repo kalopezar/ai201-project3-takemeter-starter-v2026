@@ -42,7 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-This classifier sorts public posts from [r/cybersecurity](https://www.reddit.com/r/cybersecurity/) by their primary communicative purpose. `analysis` posts explain or evaluate a cybersecurity issue using concrete, checkable details; `experience` posts mainly recount the author's own work or learning without primarily asking for help or making an evidence-backed analysis; `help_request` posts explicitly ask readers for advice or information. The labels describe what a post is doing, not whether its author or opinion is right.
+I want to sort public posts from [r/cybersecurity](https://www.reddit.com/r/cybersecurity/) by what they are mainly doing. `analysis` means explaining or evaluating an issue with checkable details, `experience` means describing your own work or learning, and `help_request` means asking readers for advice or information. The labels are about the purpose of a post, not whether I agree with it. I have not trained this classifier on cybersecurity posts yet because I still need a complete, reviewed dataset.
 
 ---
 
@@ -191,11 +191,11 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I gave the AI my three definitions and nine Reddit post titles with short summaries, and asked it to suggest a label for each.
+- *What came back:* It suggested `help_request` for seven summaries and `analysis` for two; none got `experience`. The suggestions are in the draft `labels.csv`.
+- *What I changed:* I kept them marked as AI suggestions because they were based on summaries, not the full posts, and I have not reviewed them. They revealed that the draft labels are lopsided, so I am not treating these rows as training examples.
 
-**Pre-labelling disclosure:** No dataset posts have been pre-labelled. The eight AI-generated posts above were only a taxonomy stress test and are not part of the dataset.
+**Pre-labelling disclosure:** I have not pre-labelled any full dataset posts. `labels.csv` contains nine AI-suggested labels attached to short summaries and source links, not full post text; I have not reviewed them, and they do not count toward my dataset. The eight fictional posts from Moment 1 were only a taxonomy stress test and are not real community posts.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
