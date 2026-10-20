@@ -44,6 +44,8 @@
 
 I want to sort public posts from [r/cybersecurity](https://www.reddit.com/r/cybersecurity/) by what they are mainly doing. `analysis` means explaining or evaluating an issue with checkable details, `experience` means describing your own work or learning, and `help_request` means asking readers for advice or information. The labels are about the purpose of a post, not whether I agree with it. I have not trained this classifier on cybersecurity posts yet because I still need a complete, reviewed dataset.
 
+**My repository:** [https://github.com/kalopezar/ai201-project3-takemeter-starter-v2026](https://github.com/kalopezar/ai201-project3-takemeter-starter-v2026)
+
 ---
 
 ## Label Taxonomy
