@@ -42,7 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-
+This classifier sorts public posts from [r/cybersecurity](https://www.reddit.com/r/cybersecurity/) by their primary communicative purpose. `analysis` posts explain or evaluate a cybersecurity issue using concrete, checkable details; `experience` posts mainly recount the author's own work or learning without primarily asking for help or making an evidence-backed analysis; `help_request` posts explicitly ask readers for advice or information. The labels describe what a post is doing, not whether its author or opinion is right.
 
 ---
 
@@ -54,34 +54,42 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `analysis`
 
-**Definition:**
+**Definition:** The post's main purpose is to explain or evaluate a cybersecurity issue, supported by concrete, checkable details such as a source, timeline, measurement, or observed evidence.
 
-**Example 1:**
->
+**Example 1:** The post about a five-month Log4Shell campaign against Ukraine's state data-exchange system describes how the exposed directory revealed the operation.
+> [Ukraine's state data-exchange system targeted in a 5-month Log4Shell campaign](https://www.reddit.com/r/cybersecurity/comments/1xauvjc/ukraines_state_dataexchange_system_targeted_in_a/)
 
-**Example 2:**
->
+**Example 2:** The post about ransomware data dumps notes the number and size of posted archives and the absence of a file tree, using those observations to discuss what can responsibly be inferred.
+> [100+ 1G files from darkweb - can people really download leaked data?](https://www.reddit.com/r/cybersecurity/comments/1xaxgzg/100_1g_files_from_darkweb_can_people_really/)
 
-### `label_two`
+### `experience`
 
-**Definition:**
+**Definition:** The post's main purpose is to recount the author's own cybersecurity work, workplace, or learning, without primarily asking readers for help or using evidence to explain or evaluate a broader issue.
 
-**Example 1:**
->
+**Example 1:** The author describes their company's global on-call rotation, team size, and weekend coverage.
+> [Large Companies - What's your (Cyber) on-call Schedule Like?](https://www.reddit.com/r/cybersecurity/comments/1xav151/large_companies_whats_your_cyber_oncall_schedule/)
 
-**Example 2:**
->
+**Example 2:** The author says most of their work week goes to compliance spreadsheets and describes the effect on their technical skills.
+> [Anyone else feel like they’re just a glorified spreadsheet administrator at this point?](https://www.reddit.com/r/cybersecurity/comments/1xa7x8b/anyone_else_feel_like_theyre_just_a_glorified/)
+
+### `help_request`
+
+**Definition:** The post explicitly asks readers for guidance, recommendations, or information about a cybersecurity task or decision; personal background or supporting facts do not change that purpose.
+
+**Example 1:** A new analyst asks for practical guidance on setting up and testing a mobile app.
+> [Guidance for mobile application security testing](https://www.reddit.com/r/cybersecurity/comments/1xay1m4/guidance_for_mobile_application_security_testing/)
+
+**Example 2:** The author asks whether blocking all internet access and allowlisting needed services is worthwhile, and what strategies others use.
+> [Blocking the Entire Internet](https://www.reddit.com/r/cybersecurity/comments/1xauxhj/blocking_the_entire_internet/)
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `experience` and `help_request`
 
 **The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-
+The borderline post is [“Blocking the Entire Internet”](https://www.reddit.com/r/cybersecurity/comments/1xauxhj/blocking_the_entire_internet/): it describes the author's team's idea, but asks whether it is worthwhile and what strategies others use. First, label an explicit, genuine request for advice or information `help_request`, even if it includes workplace context or evidence. If there is no such request, label a post `analysis` only when it uses concrete, checkable support to explain or evaluate a broader cybersecurity issue; otherwise label a first-person account `experience`. A rhetorical question that does not actually seek a response does not count as a help request.
 
 
 ---
@@ -162,9 +170,17 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I gave the three label definitions to an AI tool and asked it to write eight fictional cybersecurity posts that stress-test the boundaries.
+- *What came back:* Eight short, fictional cases. I classified each using the decision rule:
+  1. “I now handle the weekly access-review rota. It takes two hours, but the handoff is smoother than last quarter.” — `experience`: a personal account without a request or broader evidence-based evaluation.
+  2. “I inherited the weekly access-review rota and keep missing exceptions. How do other teams track them?” — `help_request`: explicitly asks for advice, despite its personal context.
+  3. “I reviewed 120 access alerts over four weeks; 31 were duplicates, and removing them cut the queue by about a quarter.” — `analysis`: uses a measurable observation to evaluate a broader workflow issue.
+  4. “For four weeks I helped review access alerts. The repetitive queue was the hardest part of my rotation.” — `experience`: first-person account, with no request or supported broader claim.
+  5. “Our new MFA prompt confused several staff in my first week supporting it. What wording has helped other teams explain a change like this?” — `help_request`: asks for a recommendation; the work anecdote is context.
+  6. “The incident report gives a disclosure date, affected service, and confirmed record count; those details make the scope clearer than the initial notice.” — `analysis`: evaluates a public issue using checkable details.
+  7. “I moved from IT support into a junior security role this year. Which fundamentals helped you most in your first six months?” — `help_request`: explicitly requests information, although most of the post is personal background.
+  8. “During my first month on call, I escalated two alerts that turned out to be benign. Writing down why helped me recognize the same pattern later.” — `experience`: recounts personal learning without requesting help or making a broader evidence-backed evaluation.
+- *What I changed:* I made the priority explicit: a genuine request for advice or information is `help_request`; absent a request, concrete evidence used to explain or evaluate a broader issue is `analysis`; otherwise, a first-person account is `experience`. I also clarified that a rhetorical question alone is not a request.
 
 **Moment 2**
 
@@ -172,7 +188,7 @@ of next unit's variance. -->
 - *What came back:*
 - *What I changed:*
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** No dataset posts have been pre-labelled. The eight AI-generated posts above were only a taxonomy stress test and are not part of the dataset.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
