@@ -11,9 +11,10 @@ opinion. *"Every label has an F1 of at least 0.60 on the held-out set"* is a
 criterion.
 
 Under each, write a sentence or two on **why that number**. A reason that says
-something about your data or your taxonomy earns credit — *"I picked 0.60 F1
-for `reaction` because it's my smallest label and I only have about 50
-examples of it"*. A reason that could be attached to any project does not.
+something about your data or your taxonomy earns credit — *"I picked 0.45 F1
+for `experience` because that label can be confused with `help_request` when a
+runner describes a personal situation before asking for advice"*. A reason
+that could be attached to any project does not.
 
 > Missing your own targets next unit costs you nothing. Setting a target so
 > easy you can't miss it does.
@@ -22,7 +23,7 @@ examples of it"*. A reason that could be attached to any project does not.
 
 ## Pick numbers you can defend
 
-Not numbers that sound impressive. Three labels means a coin-flip guesser gets
+Not numbers that sound impressive. Three labels means a uniform random guesser gets
 about 33%, so a target of 0.40 is barely a target. Your number should sit
 somewhere you'd honestly call useful.
 
@@ -55,7 +56,7 @@ whether you hit them:
 
 Overall accuracy is at least **0.65 in each of the three seed runs** on the held-out test set.
 
-**Why this target:** I want it to get more than just over half the posts right for this to feel useful. Some posts mix personal experience with a question or analysis, so I don't expect it to be right every time.
+**Why this target:** I want it to get more than just over half the running posts right for this to feel useful. Some posts mix personal training experience with a question or analysis, so I don't expect it to be right every time.
 
 ---
 
@@ -63,7 +64,7 @@ Overall accuracy is at least **0.65 in each of the three seed runs** on the held
 
 Macro F1 is at least **0.60 in each of the three seed runs** on the held-out test set.
 
-**Why this target:** I don't want a good score on the most common label to hide bad results on the others. I picked 0.60 because all three labels should be doing reasonably well, even if the personal-experience and help-request boundary is tricky.
+**Why this target:** I don't want a good score on the most common label to hide bad results on the others. I picked 0.60 because all three labels should be doing reasonably well, even if a runner's personal story and request for training advice appear in the same post.
 
 ---
 
@@ -71,7 +72,7 @@ Macro F1 is at least **0.60 in each of the three seed runs** on the held-out tes
 
 The F1 score for each of `analysis`, `experience`, and `help_request` is at least **0.45 in each of the three seed runs** on the held-out test set.
 
-**Why this target:** I set this lower than the overall target because each label has fewer examples in the test set, so its score can jump around more. `experience` and `help_request` can also look alike when someone describes their own situation before asking a question.
+**Why this target:** I set this lower than the overall target because each label has fewer examples in the test set, so its score can jump around more. `experience` and `help_request` can also look alike when a runner describes training history before asking what to do next.
 
 ---
 
@@ -87,7 +88,7 @@ In the labelled dataset, no label has more than **50%** of the posts, and every 
 
 In each of the three seed runs, accuracy on the most-confident third of held-out predictions is at least **0.10 higher** than accuracy on the least-confident third.
 
-**Why this target:** I expect the model to be more accurate when it's sure than when it's unsure, especially for clear questions or evidence-based posts. I picked a 10-point gap because a tiny difference wouldn't tell me much.
+**Why this target:** I expect the model to be more accurate when it's sure than when it's unsure, especially for clear training questions or posts that evaluate running methods with evidence. I picked a 10-point gap because a tiny difference wouldn't tell me much.
 
 ---
 

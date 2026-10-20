@@ -42,7 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-I want to sort public posts from [r/cybersecurity](https://www.reddit.com/r/cybersecurity/) by what they are mainly doing. `analysis` means explaining or evaluating an issue with checkable details, `experience` means describing your own work or learning, and `help_request` means asking readers for advice or information. The labels are about the purpose of a post, not whether I agree with it. I have not trained this classifier on cybersecurity posts yet because I still need a complete, reviewed dataset.
+I want to sort public posts from [r/running](https://www.reddit.com/r/running/) by what they are mainly doing. `analysis` means explaining or evaluating a running topic with checkable details, `experience` means describing your own running or training, and `help_request` means asking readers for advice or information. The labels are about the purpose of a post, not whether I agree with it. I still need to read the community posts and make a complete, reviewed dataset before I can train a running classifier.
 
 **My repository:** [https://github.com/kalopezar/ai201-project3-takemeter-starter-v2026](https://github.com/kalopezar/ai201-project3-takemeter-starter-v2026)
 
@@ -58,40 +58,40 @@ I want to sort public posts from [r/cybersecurity](https://www.reddit.com/r/cybe
 
 ### `analysis`
 
-**Definition:** The post's main purpose is to explain or evaluate a cybersecurity issue, supported by concrete, checkable details such as a source, timeline, measurement, or observed evidence.
+**Definition:** The post's main purpose is to explain or evaluate a running topic, supported by concrete, checkable details such as training data, race results, or a described comparison.
 
-**Example 1:** The post about a five-month Log4Shell campaign against Ukraine's state data-exchange system describes how the exposed directory revealed the operation.
-> [Ukraine's state data-exchange system targeted in a 5-month Log4Shell campaign](https://www.reddit.com/r/cybersecurity/comments/1xauvjc/ukraines_state_dataexchange_system_targeted_in_a/)
+**Example 1 (candidate; read and confirm):** The author reviews a running-plan app after using it for a year and compares its plans and customization.
+> [In-depth review of Runna after using it for a year](https://www.reddit.com/r/running/comments/1tfyl2u/indepth_review_of_runna_after_using_it_for_a_year/)
 
-**Example 2:** The post about ransomware data dumps notes the number and size of posted archives and the absence of a file tree, using those observations to discuss what can responsibly be inferred.
-> [100+ 1G files from darkweb - can people really download leaked data?](https://www.reddit.com/r/cybersecurity/comments/1xaxgzg/100_1g_files_from_darkweb_can_people_really/)
+**Example 2 (candidate; title only, read and confirm):** The title raises whether Zone 2 training is necessary or overhyped; check the full post before deciding it is analysis rather than a request for opinions.
+> [Do I actually need to run Zone 2 or is it overhyped?](https://www.reddit.com/r/running/comments/1suhptl/do_i_actually_need_to_run_zone_2_or_is_it/)
 
 ### `experience`
 
-**Definition:** The post's main purpose is to recount the author's own cybersecurity work, workplace, or learning, without primarily asking readers for help or using evidence to explain or evaluate a broader issue.
+**Definition:** The post's main purpose is to recount the author's own running, training, or race experience, without primarily asking readers for advice or evaluating a broader training question with evidence.
 
-**Example 1:** The author describes their company's global on-call rotation, team size, and weekend coverage.
-> [Large Companies - What's your (Cyber) on-call Schedule Like?](https://www.reddit.com/r/cybersecurity/comments/1xav151/large_companies_whats_your_cyber_oncall_schedule/)
+**Example 1 (candidate; read and confirm):** The author recounts personal experience using a training-plan app over two training blocks; decide whether the review is mainly personal experience or evidence-backed analysis.
+> [In-depth review of Runna after using it for a year](https://www.reddit.com/r/running/comments/1tfyl2u/indepth_review_of_runna_after_using_it_for_a_year/)
 
-**Example 2:** The author says most of their work week goes to compliance spreadsheets and describes the effect on their technical skills.
-> [Anyone else feel like they’re just a glorified spreadsheet administrator at this point?](https://www.reddit.com/r/cybersecurity/comments/1xa7x8b/anyone_else_feel_like_theyre_just_a_glorified/)
+**Example 2 (candidate; read and confirm):** The author describes starting to run later in life and their training progress, but also asks readers several questions, so the decision rule may put it under `help_request`.
+> [Started running at 39. For those who also started later — what happened to your fitness in years 2–4?](https://www.reddit.com/r/running/comments/1w4c85u/started_running_at_39_for_those_who_also_started/)
 
 ### `help_request`
 
-**Definition:** The post explicitly asks readers for guidance, recommendations, or information about a cybersecurity task or decision; personal background or supporting facts do not change that purpose.
+**Definition:** The post explicitly asks readers for guidance, recommendations, or information about running or a training decision; personal background or supporting facts do not change that purpose.
 
-**Example 1:** A new analyst asks for practical guidance on setting up and testing a mobile app.
-> [Guidance for mobile application security testing](https://www.reddit.com/r/cybersecurity/comments/1xay1m4/guidance_for_mobile_application_security_testing/)
+**Example 1 (candidate; read and confirm):** A runner asks peers how fitness and durability changed after starting to run later in life.
+> [Started running at 39. For those who also started later — what happened to your fitness in years 2–4?](https://www.reddit.com/r/running/comments/1w4c85u/started_running_at_39_for_those_who_also_started/)
 
-**Example 2:** The author asks whether blocking all internet access and allowlisting needed services is worthwhile, and what strategies others use.
-> [Blocking the Entire Internet](https://www.reddit.com/r/cybersecurity/comments/1xauxhj/blocking_the_entire_internet/)
+**Example 2 (candidate; title only, read and confirm):** A beginner Q&A thread is intended for questions from new runners.
+> [New to running or the sub? Click here first!](https://www.reddit.com/r/running/comments/1qtznm4/new_to_running_or_the_sub_click_here_first/)
 
 ### The hardest boundary
 
 **Which two labels:** `experience` and `help_request`
 
 **The decision rule I used every time:**
-The borderline post is [“Blocking the Entire Internet”](https://www.reddit.com/r/cybersecurity/comments/1xauxhj/blocking_the_entire_internet/): it describes the author's team's idea, but asks whether it is worthwhile and what strategies others use. First, label an explicit, genuine request for advice or information `help_request`, even if it includes workplace context or evidence. If there is no such request, label a post `analysis` only when it uses concrete, checkable support to explain or evaluate a broader cybersecurity issue; otherwise label a first-person account `experience`. A rhetorical question that does not actually seek a response does not count as a help request.
+The borderline post is [“Started running at 39. For those who also started later — what happened to your fitness in years 2–4?”](https://www.reddit.com/r/running/comments/1w4c85u/started_running_at_39_for_those_who_also_started/): it contains a detailed personal training story but explicitly asks readers about their experience. Between `experience` and `help_request`, label a post `help_request` when it genuinely asks readers for advice or information, even if most of the text is personal background. Label it `experience` when it mainly recounts the author's own running without asking for guidance. If there is no genuine request, use `analysis` only when concrete details support an explanation or evaluation of a broader running topic. A rhetorical question that does not seek a response is not a help request. This is a provisional decision from the available post summary; confirm it after reading the full post.
 
 
 ---
@@ -101,24 +101,24 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:** Public posts in [r/cybersecurity](https://www.reddit.com/r/cybersecurity/). I have collected 9 source links in `data/reddit_source_manifest.csv`, but those links and AI-suggested labels are not a labeled dataset.
+**Where the posts came from:** The training dataset is 200 original synthetic running posts generated for this exercise. They are not Reddit posts and do not represent the [r/running](https://www.reddit.com/r/running/) community. `data/running_source_manifest.csv` contains separate public-post candidates; I have not completed the required 30–40-post community reading.
 
-**How I labelled them:** I have not labeled any dataset posts yet. Reddit rate-limited further collection, and I have not yet assembled full post text or reviewed labels. The manifest's suggested labels are AI-assisted and need my review; they are not cold labels.
+**How I labelled them:** All 200 synthetic examples were generated and assigned labels with AI assistance. None are cold labels, user-reviewed community posts, or full-text posts collected from Reddit. The nine rows in the source manifest are only title/snippet-based suggestions and are not included in the training data.
 
-**Draft file:** `labels.csv` currently contains 9 AI-assisted summaries with source links and suggested labels. These are not full post text, have not been reviewed, and do not count as labeled examples.
+**Dataset file:** `labels.csv` contains the 200 synthetic training examples. Each row's note identifies it as AI-generated, synthetic, not a real community post, and not cold-labeled.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-| `analysis` | 0 | 0% |
-| `experience` | 0 | 0% |
-| `help_request` | 0 | 0% |
-| **Total** | **0 labeled posts** | — |
+| `analysis` | 67 | 33.5% |
+| `experience` | 67 | 33.5% |
+| `help_request` | 66 | 33.0% |
+| **Total** | **200 synthetic examples** | **100%** |
 
-**Progress:** 0 labeled examples so far, below the 150-example fallback. I stopped at the source manifest because further public-feed requests were rate-limited; I don't have full post text or reviewed labels to include honestly yet.
+**Progress:** The requested 200-row training file is complete as a synthetic demonstration. It does not satisfy the real-community post collection or personal reading requirement; I have not read 30–40 posts for the required 20 minutes, and the real-community dataset remains 0 reviewed examples.
 
-**Training blocker:** Section 2 reported `[FIX ME] 'help_request' is 78% of your data` for the nine-row draft. It also reported that `experience` is unused and that both present labels have too few examples for stable evaluation. These rows are summaries, not full posts, so I have not trained or evaluated a cybersecurity model on them. The section 4 run below uses the separate practice dataset.
+**Training caveat:** Training below uses synthetic examples only. Its metrics describe how the model learned these generated examples and must not be reported as performance on real running-community posts. The source manifest remains a separate, unreviewed list of candidates.
 
 **Three hard cases**
 
@@ -129,25 +129,25 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
      each full post and replace or confirm these with cases that made you pause. -->
 
 **1.**
-> *The post:* [“Blocking the Entire Internet”](https://www.reddit.com/r/cybersecurity/comments/1xauxhj/blocking_the_entire_internet/) — describes a workplace proposal to block internet access and allowlist services.
+> *The post:* [“In-depth review of Runna after using it for a year”](https://www.reddit.com/r/running/comments/1tfyl2u/indepth_review_of_runna_after_using_it_for_a_year/) — a first-person review of a training app based on two training periods.
 >
-> *Could have been:* `experience` or `help_request`
+> *Could have been:* `experience` or `analysis`
 >
-> *AI-assisted provisional choice:* `help_request`, because the author asks whether the proposal is worthwhile and what strategies others use; the workplace context supports the question but is not the main purpose.
+> *AI-assisted provisional choice:* `analysis`, if the full post's main purpose is to evaluate the app using comparisons and concrete training details; use `experience` if it mainly recounts the author's personal use. Read the full post before confirming.
 
 **2.**
-> *The post:* [“Large Companies - What's your (Cyber) on-call Schedule Like?”](https://www.reddit.com/r/cybersecurity/comments/1xav151/large_companies_whats_your_cyber_oncall_schedule/) — gives detailed first-person information about the author's team's rotation and asks how other companies handle on-call.
+> *The post:* [“Started running at 39. For those who also started later — what happened to your fitness in years 2–4?”](https://www.reddit.com/r/running/comments/1w4c85u/started_running_at_39_for_those_who_also_started/) — describes the author's training and asks others how their fitness changed over time.
 >
 > *Could have been:* `experience` or `help_request`
 >
-> *AI-assisted provisional choice:* `help_request`, because the post explicitly asks readers to compare their schedules; the personal account is context for the request.
+> *AI-assisted provisional choice:* `help_request`, because the author explicitly asks other runners questions; the personal training details are context for the request.
 
 **3.**
-> *The post:* [“100+ 1G files from darkweb - can people really download leaked data?”](https://www.reddit.com/r/cybersecurity/comments/1xaxgzg/100_1g_files_from_darkweb_can_people_really/) — describes a ransomware leak listing and reasons from details about the posted archives and missing file tree.
+> *The post:* [“Do I actually need to run Zone 2 or is it overhyped?”](https://www.reddit.com/r/running/comments/1suhptl/do_i_actually_need_to_run_zone_2_or_is_it/) — the title asks about a training method, but the full post has not been reviewed.
 >
 > *Could have been:* `analysis` or `help_request`
 >
-> *AI-assisted provisional choice:* `help_request`, because the author frames the post as a question about what can be inferred; classify a genuine request as `help_request` even when it includes evidence. If reading the full post shows the question is rhetorical and its main purpose is evidence-based evaluation, use `analysis` instead.
+> *AI-assisted provisional choice:* `help_request` if the author is seeking other runners' advice; use `analysis` if the post mainly evaluates the training method with evidence and the question is rhetorical. Read and classify from the full text.
 
 ---
 
@@ -155,15 +155,19 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:** `distilbert-base-uncased` (practice demonstration only)
+**Base model:** `distilbert-base-uncased` (synthetic-data demonstration only)
 
 **Settings:** 3 epochs, learning rate `2e-5`, batch size 16, max length 128, seed 42
 
 **Device:** CPU (`torch 2.14.1+cpu`)
 
-**Anything I changed from the defaults, and why:** For this demonstration I used `data/practice_labels.csv` and its labels (`analysis`, `hot_take`, `reaction`) in memory, because my cybersecurity CSV is not ready for training. I did not change the notebook file's label map for this run.
+**Anything I changed from the defaults, and why:** No hyperparameters changed. I trained on the 200-row synthetic `labels.csv` because real community posts and personally reviewed labels are not available. This is an end-to-end training demonstration, not a valid evaluation of an r/running classifier.
 
-**Split sizes:** 42 train / 9 validation / 9 test. The test split had 3 examples per practice label, so each label has fewer than 8; these results are only a practice run and not evidence about my cybersecurity classifier.
+**Split sizes:** 139 train / 31 validation / 30 test; the test split contains 10 examples of each label.
+
+**Seed 42 test results:** Accuracy 1.00, macro F1 1.00, with F1 1.00 for `analysis`, `experience`, and `help_request`. Most-confident-third accuracy was 1.00 and least-confident-third accuracy was 1.00.
+
+**Interpretation:** The perfect scores reflect the highly regular, AI-generated examples and this small synthetic test split. They are not evidence of real-world accuracy and must not be reported as performance on genuine running-community posts.
 
 
 ---
@@ -179,25 +183,25 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 
 **Moment 1**
 
-- *What I asked for:* I gave the three label definitions to an AI tool and asked it to write eight fictional cybersecurity posts that stress-test the boundaries.
-- *What came back:* Eight short, fictional cases. I classified each using the decision rule:
-  1. “I now handle the weekly access-review rota. It takes two hours, but the handoff is smoother than last quarter.” — `experience`: a personal account without a request or broader evidence-based evaluation.
-  2. “I inherited the weekly access-review rota and keep missing exceptions. How do other teams track them?” — `help_request`: explicitly asks for advice, despite its personal context.
-  3. “I reviewed 120 access alerts over four weeks; 31 were duplicates, and removing them cut the queue by about a quarter.” — `analysis`: uses a measurable observation to evaluate a broader workflow issue.
-  4. “For four weeks I helped review access alerts. The repetitive queue was the hardest part of my rotation.” — `experience`: first-person account, with no request or supported broader claim.
-  5. “Our new MFA prompt confused several staff in my first week supporting it. What wording has helped other teams explain a change like this?” — `help_request`: asks for a recommendation; the work anecdote is context.
-  6. “The incident report gives a disclosure date, affected service, and confirmed record count; those details make the scope clearer than the initial notice.” — `analysis`: evaluates a public issue using checkable details.
-  7. “I moved from IT support into a junior security role this year. Which fundamentals helped you most in your first six months?” — `help_request`: explicitly requests information, although most of the post is personal background.
-  8. “During my first month on call, I escalated two alerts that turned out to be benign. Writing down why helped me recognize the same pattern later.” — `experience`: recounts personal learning without requesting help or making a broader evidence-backed evaluation.
-- *What I changed:* I made the priority explicit: a genuine request for advice or information is `help_request`; absent a request, concrete evidence used to explain or evaluate a broader issue is `analysis`; otherwise, a first-person account is `experience`. I also clarified that a rhetorical question alone is not a request.
+- *What I asked for:* For the running topic, I asked an AI tool to write eight fictional boundary-test posts and classify them using the three labels.
+- *What came back:* Eight short, fictional cases with AI-suggested labels. The examples below illustrate how the written decision rule applies; they are a synthetic taxonomy exercise, not labels from posts I personally read:
+  1. “I ran my first 5K last month and now run the same loop twice a week; the routine has made it easier to keep going.” — `experience`: a personal account without a request or broader evidence-based evaluation.
+  2. “I keep adding distance and my calves are sore the next day. How many rest days should I take?” — `help_request`: explicitly asks for advice, despite its personal context.
+  3. “I compared six weeks of easy runs before and after slowing my pace; my average heart rate fell while the distance stayed similar.” — `analysis`: uses a measurable observation to evaluate a training change.
+  4. “My first half marathon was harder than expected, especially the last few kilometres, but finishing felt great.” — `experience`: first-person account, with no request or supported broader claim.
+  5. “My easy pace feels almost too slow. What signs do you use to tell whether an easy run is actually easy?” — `help_request`: asks for guidance; the personal context is secondary.
+  6. “Across my last ten runs, the hotter afternoons had higher heart rates at the same pace; temperature may be affecting my effort.” — `analysis`: evaluates a pattern using checkable details.
+  7. “I started running this year and want to train for a 10K. Which beginner plan worked for you?” — `help_request`: explicitly requests information, although most of the post is personal background.
+  8. “During my first trail race I walked the steep climbs and enjoyed the course more than I expected.” — `experience`: recounts personal learning without requesting help or making a broader evidence-backed evaluation.
+- *What I changed:* I made the priority explicit: a genuine request for advice or information is `help_request`; absent a request, concrete evidence used to explain or evaluate a broader running topic is `analysis`; otherwise, a first-person account is `experience`. I also clarified that a rhetorical question alone is not a request.
 
 **Moment 2**
 
-- *What I asked for:* I gave the AI my three definitions and nine Reddit post titles with short summaries, and asked it to suggest a label for each.
-- *What came back:* It suggested `help_request` for seven summaries and `analysis` for two; none got `experience`. The suggestions are in the draft `labels.csv`.
-- *What I changed:* I kept them marked as AI suggestions because they were based on summaries, not the full posts, and I have not reviewed them. They revealed that the draft labels are lopsided, so I am not treating these rows as training examples.
+- *What I asked for:* I asked an AI tool to create original synthetic running examples for `analysis`, `experience`, and `help_request`, with balanced counts for a local training demonstration.
+- *What came back:* A 200-row synthetic dataset with labels assigned during generation.
+- *What I changed:* I kept the data explicitly marked as synthetic and not cold-labeled. I did not present any generated text as a Reddit post or as something I personally read.
 
-**Pre-labelling disclosure:** I have not pre-labelled any full dataset posts. `labels.csv` contains nine AI-suggested labels attached to short summaries and source links, not full post text; I have not reviewed them, and they do not count toward my dataset. The eight fictional posts from Moment 1 were only a taxonomy stress test and are not real community posts.
+**Pre-labelling disclosure:** All 200 rows in `labels.csv` are AI-generated synthetic examples with AI-assigned labels; none are cold-labeled or from real community posts. The public-source manifest contains only title/snippet-based candidates and is not part of the training data. The eight fictional posts from Moment 1 are a separate taxonomy stress test.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
@@ -256,7 +260,7 @@ The borderline post is [“Blocking the Entire Internet”](https://www.reddit.c
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
+     direction. "7 real help_request posts were called experience and only 3 went the
      other way" is a direction, not just an error rate. -->
 
 
