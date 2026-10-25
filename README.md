@@ -252,27 +252,27 @@ Unexpectedly, bare label names did better by 0.500 accuracy and 0.667 macro F1 o
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥0.65 | 1.000 | 1.000 | 1.000 | MET |
+| 2. Macro F1 | ≥0.60 | 1.000 | 1.000 | 1.000 | MET |
+| 3. Every label F1 | ≥0.45 | 1.000 | 1.000 | 1.000 | MET |
+| 4. Label shares | each 20–50% | 33.5 / 33.5 / 33.0% | 33.5 / 33.5 / 33.0% | 33.5 / 33.5 / 33.0% | MET |
+| 5. Confidence accuracy gap | ≥0.10 | 0.000 | 0.000 | 0.000 | MISSED |
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+| true \ predicted | analysis | experience | help_request |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **analysis** | 10 | 0 | 0 |
+| **experience** | 0 | 10 | 0 |
+| **help_request** | 0 | 0 | 10 |
 
 **My biggest off-diagonal number, and what it means:**
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real help_request posts were called experience and only 3 went the
-     other way" is a direction, not just an error rate. -->
+There were no off-diagonal predictions in the seed-42 synthetic test split, so no label confusion appeared in this matrix. Because the examples were generated and highly regular, this does not establish that the model learned real running-community boundaries.
+
+**Run artifact and device:** `results_three_seeds_before.json`; CPU (`torch 2.14.1+cpu`). Each seed tested 30 synthetic examples, 10 per label. All three seeds reached 1.000 accuracy, macro F1, and per-label F1. The confidence criterion was missed: the most- and least-confident thirds were both 1.000 accurate, a gap of 0.000. These metrics describe only synthetic data, not real community posts.
 
 
 
