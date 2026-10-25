@@ -229,6 +229,18 @@ I did not record a prediction before seeing the trained scores in the previous u
 **What the gap actually means:**
 On this held-out synthetic split, fine-tuning scored higher than the zero-shot baseline on every measure. This is not evidence that it will outperform the baseline on real r/running posts: both training and test examples were AI-generated synthetic text with regular patterns, so the comparison measures performance on that synthetic set only.
 
+### Definition-prompt check
+
+I ran the zero-shot baseline twice on the same 30 held-out posts: once using the definitions in `label_definitions.txt`, and once with a deliberately missing definitions file so the baseline fell back to bare label names.
+
+| Prompt | Accuracy | Macro F1 | `analysis` F1 | `experience` F1 | `help_request` F1 |
+|---|---:|---:|---:|---:|---:|
+| README definitions | 0.333 | 0.167 | 0.500 | 0.000 | 0.000 |
+| Bare label names | 0.833 | 0.833 | 0.889 | 0.833 | 0.778 |
+| Difference (bare minus definitions) | +0.500 | +0.667 | +0.389 | +0.833 | +0.778 |
+
+Unexpectedly, bare label names did better by 0.500 accuracy and 0.667 macro F1 on this set. This measures the effect of the prompt wording for this model and these synthetic examples; it does not show that bare names are generally better or that either prompt will perform this way on real running posts. The original definition-based run remains the primary baseline comparison above. Full outputs: `baseline_results_with_definitions.json` and `baseline_results_bare_labels.json`.
+
 
 
 ---
