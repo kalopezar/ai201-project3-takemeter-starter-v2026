@@ -217,18 +217,17 @@ The borderline post is [“Started running at 39. For those who also started lat
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.333 | 1.000 | +0.667 |
+| Macro F1 | 0.167 | 1.000 | +0.833 |
+| F1 — `analysis` | 0.500 | 1.000 | +0.500 |
+| F1 — `experience` | 0.000 | 1.000 | +1.000 |
+| F1 — `help_request` | 0.000 | 1.000 | +1.000 |
 
 **What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+I did not record a prediction before seeing the trained scores in the previous unit, so I cannot honestly report a preregistered prediction here.
 
 **What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
+On this held-out synthetic split, fine-tuning scored higher than the zero-shot baseline on every measure. This is not evidence that it will outperform the baseline on real r/running posts: both training and test examples were AI-generated synthetic text with regular patterns, so the comparison measures performance on that synthetic set only.
 
 
 

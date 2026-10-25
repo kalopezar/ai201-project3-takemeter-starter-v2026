@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.3333333333333333,
+    "f1_macro": 0.16666666666666666,
+    "per_label": {
+      "analysis": {
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "support": 10
+      },
+      "experience": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      },
+      "help_request": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "A comparison of the last twelve outings shows cadence readings became more stable while threshold workouts stayed similar, which suggests pace alone does not explain the difference. The setting was the stadium path with bright sunshine.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My watch readings vary a lot between routes. How do you account for hills when judging whether a run was easy? The setting was a neighborhood loop with mild temperatures.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My pace fades during tempo sessions even when I start conservatively. What should I review in my training log first? The setting was the field circuit with mild temperatures.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I grouped tempo sessions by heart-rate readings for six weeks; the slower sessions clustered on the hilly routes, not on the days after workouts. The setting was the gravel path with cool morning air.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "For three weeks, I compared race pacing with and without a recovery day; cadence readings fell over time after rest, based on my watch and training notes. The setting was the community track with bright sunshine.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I was nervous before my first group run, but everyone was welcoming and I left with a new favorite route. The setting was the gravel path with damp pavement.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I have been running consistently for six weeks and want to build gradually. Which signs help you decide when to add distance? The setting was a quiet country lane with mild temperatures.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My first hill repeats felt awkward, but I settled into a rhythm and finished feeling stronger than I expected. The setting was a quiet country lane with a clear evening.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I grouped treadmill runs by split times for my spring build; the slower sessions clustered on the hilly routes, not on the days after workouts. The setting was the orchard road with a light drizzle.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I tried a new pair of shoes for my warm-weather runs; they felt different at first, then comfortable by the end of the route. The setting was the riverside path with damp pavement.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I have been running consistently for the last twelve outings and want to build gradually. Which signs help you decide when to add distance? The setting was the riverside path with a warm afternoon.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My spreadsheet separates weekly mileage by perceived effort over two months; the easy days remained steady even as average pace stayed nearly flat. The setting was a wooded trail with cool morning air.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I am adding easy runs to my week and keep feeling tired the next day. How would you adjust the rest of the schedule? The setting was the gravel path with a clear evening.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "The weather is getting warmer and my usual effort feels harder on easy days. What changes help you stay comfortable in the heat? The setting was the orchard road with a clear evening.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I have been running consistently for the past ten days and want to build gradually. Which signs help you decide when to add distance? The setting was the bike path with a clear evening.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I returned to early-morning runs after a quiet week and was surprised by how much I had missed being outside. The setting was the community track with cloudy skies.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My last race did not go to plan, but I stayed relaxed through the final kilometres and crossed the line proud of the effort. The setting was the canal towpath with cloudy skies.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I tried a new pair of shoes for my long runs; they felt different at first, then comfortable by the end of the route. The setting was the bike path with a steady breeze.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I was nervous before my first group run, but everyone was welcoming and I left with a new favorite route. The setting was a neighborhood loop with damp pavement.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I compared the last twelve outings of treadmill runs before and after changing my routine; time on feet dropped on recovery days, so the change appears to have affected my effort. The setting was the riverside path with a steady breeze.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My spreadsheet separates easy runs by perceived effort over the last twelve outings; the easy days remained steady even as effort ratings changed very little. The setting was the orchard road with bright sunshine.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I kept threshold workouts easy today and enjoyed the route instead of watching my pace; that made the whole run feel lighter. The setting was the paved greenway with a clear evening.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I want to try a trail route but have only run on roads. What should I know before choosing a first trail outing? The setting was a quiet country lane with fresh snow flurries.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "In the past ten days, I logged threshold workouts by route and found heart-rate readings became more stable on the flatter course; terrain seems to explain the gap. The setting was the orchard road with cool morning air.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "The race results from my spring build show heart-rate readings dropped on recovery days in cooler conditions, while the course and pacing plan were nearly unchanged. The setting was the riverside path with a light drizzle.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My first strength sessions felt awkward, but I settled into a rhythm and finished feeling stronger than I expected. The setting was the riverside path with cloudy skies.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I have been running consistently for my spring build and want to build gradually. Which signs help you decide when to add distance? The setting was the lake loop with a warm afternoon.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My pace fades during strength sessions even when I start conservatively. What should I review in my training log first? The setting was the indoor track with mild temperatures.",
+      "gold": "help_request",
+      "predicted": "analysis"
+    },
+    {
+      "text": "The trail was steeper than I remembered, so I walked a few climbs and enjoyed the views instead of pushing the pace. The setting was a wooded trail with damp pavement.",
+      "gold": "experience",
+      "predicted": "analysis"
+    },
+    {
+      "text": "My spreadsheet separates warm-weather runs by perceived effort over four training blocks; the easy days remained steady even as heart-rate readings varied by route. The setting was a neighborhood loop with a light drizzle.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    }
+  ]
+}

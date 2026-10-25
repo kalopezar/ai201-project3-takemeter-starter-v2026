@@ -5,6 +5,6 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: explains or evaluates a running topic using concrete, checkable details
-experience: recounts the author's own running or training without primarily asking for advice or evaluating a broader topic
-help_request: explicitly asks readers for running or training advice or information
+analysis: The post's main purpose is to explain or evaluate a running topic, supported by concrete, checkable details such as training data, race results, or a described comparison.
+experience: The post's main purpose is to recount the author's own running, training, or race experience, without primarily asking readers for advice or evaluating a broader training question with evidence.
+help_request: The post explicitly asks readers for guidance, recommendations, or information about running or a training decision; personal background or supporting facts do not change that purpose.
